@@ -9,6 +9,9 @@ export const CHROME_STORE_URL =
 
 export const SITE_URL = "https://autodarkmode.com";
 
+/** BitLion's own site, linked from the footer and the other-apps page. */
+export const COMPANY_URL = "https://thebitlion.com";
+
 /**
  * GA4 measurement ID, loaded by the gtag snippet in app/layout.tsx. Page views
  * on client-side navigations are handled by GA4's own enhanced measurement

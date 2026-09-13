@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CHROME_STORE_URL, SUPPORT_EMAIL } from "@/lib/site";
+import { CHROME_STORE_URL, COMPANY_URL, SUPPORT_EMAIL } from "@/lib/site";
 import { SparkleMark } from "./SparkleMark";
 
 export function Footer() {
@@ -52,6 +52,11 @@ export function Footer() {
               </p>
               <ul className="mt-3 space-y-2.5">
                 <li>
+                  <Link href="/apps" className="text-cream/90 transition-colors hover:text-gold">
+                    Other apps
+                  </Link>
+                </li>
+                <li>
                   <Link href="/privacy" className="text-cream/90 transition-colors hover:text-gold">
                     Privacy
                   </Link>
@@ -70,7 +75,16 @@ export function Footer() {
         </div>
 
         <p className="mt-10 border-t border-line pt-6 text-xs text-muted">
-          © {new Date().getFullYear()} BitLion LLC. Chrome is a trademark of Google LLC.
+          © {new Date().getFullYear()}{" "}
+          <a
+            href={COMPANY_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline underline-offset-4 transition-colors hover:text-gold"
+          >
+            BitLion LLC
+          </a>
+          . Chrome is a trademark of Google LLC.
         </p>
       </div>
     </footer>
