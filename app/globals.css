@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+/*
+ * The palette is lifted from the extension icon: gold sparkles on near-black.
+ * The site is dark-first on purpose - it is the product demo.
+ */
+@theme {
+  --color-ink: #0a0a0c;
+  --color-ink-raised: #121216;
+  --color-ink-sunken: #08080a;
+  --color-line: #242429;
+  --color-line-soft: #1a1a1f;
+  --color-cream: #f4f4f6;
+  --color-muted: #9a9aa6;
+  --color-gold: #f5d76e;
+  --color-gold-deep: #e2bd44;
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-ink);
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: #0a0a0c;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* The soft gold wash behind the hero. */
+@utility hero-glow {
+  background-image:
+    radial-gradient(60rem 32rem at 50% -8rem, rgb(245 215 110 / 0.13), transparent 65%),
+    radial-gradient(40rem 24rem at 85% 8rem, rgb(245 215 110 / 0.06), transparent 70%);
+}
+
+/* Hairline grid, kept faint so it reads as texture rather than decoration. */
+@utility grid-veil {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.028) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  mask-image: radial-gradient(42rem 30rem at 50% 0%, #000 20%, transparent 78%);
+}
+
+/* -----------------------------------------------------------------------------
+ * Hero demo theming.
+ *
+ * These rules are the extension's own THEME_CSS, trimmed to what the mock page
+ * uses. The demo is not an approximation of the effect - it is the effect, run
+ * against a fake page instead of a real one.
+ * -------------------------------------------------------------------------- */
+
+.demo-page {
+  transition: filter 420ms ease;
+}
+
+.demo-page[data-demo-dark="true"] {
+  filter: invert(1) hue-rotate(180deg) contrast(0.95);
+  background-color: #fbfbfb;
+}
+
+/* Media counter-inverts, so photos and video come back to their true colors. */
+.demo-page[data-demo-dark="true"] [data-demo-media] {
+  filter: invert(1) hue-rotate(180deg) brightness(0.92);
+}
