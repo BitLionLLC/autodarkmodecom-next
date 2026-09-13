@@ -9,6 +9,14 @@ export const CHROME_STORE_URL =
 
 export const SITE_URL = "https://autodarkmode.com";
 
+/**
+ * GA4 measurement ID, loaded by the gtag snippet in app/layout.tsx. Page views
+ * on client-side navigations are handled by GA4's own enhanced measurement
+ * ("page changes based on browser history events"), so don't also send them
+ * from React - that counts every in-app navigation twice.
+ */
+export const GA_MEASUREMENT_ID = "G-7K9YX4V4ST";
+
 /** TODO: swap in the real support inbox before launch. */
 export const SUPPORT_EMAIL = "support@example.com";
 
