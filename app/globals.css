@@ -87,7 +87,17 @@ body {
   background-color: #fbfbfb;
 }
 
-/* Media counter-inverts, so photos and video come back to their true colors. */
+/* Media counter-inverts, so photos and video come back to their true colors.
+   The brightness() comes first on purpose: the counter-inversion runs on the
+   element's own rendering and the page's invert(1) then runs on the composited
+   result, so a brightness below 1 placed after the invert would lighten the
+   element instead of dimming it. */
 .demo-page[data-demo-dark="true"] [data-demo-media] {
-  filter: invert(1) hue-rotate(180deg) brightness(0.92);
+  filter: brightness(0.92) invert(1) hue-rotate(180deg);
+}
+
+/* Banner-sized artwork comes down further, so a big photo doesn't sit in the
+   dark page like a lightbulb. */
+.demo-page[data-demo-dark="true"] [data-demo-big] {
+  filter: brightness(0.65) invert(1) hue-rotate(180deg);
 }

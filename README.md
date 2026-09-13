@@ -28,14 +28,23 @@ and flipping the popup switch applies the extension's own inversion CSS to it â€
 come back to their true colors. Those rules live at the bottom of
 `app/globals.css` and are kept in sync with the extension's `THEME_CSS`.
 
-One rule from the extension is deliberately **not** mirrored here: its
-`brightness(0.65)` on banner-sized media. Because a child's filter is applied
-before the parent's inversion, a brightness below 1 on a counter-inverted
-element ends up *lightening* it once the parent inverts. The site does not
-demonstrate or claim that behavior while the extension ships it that way.
+The demo mirrors the extension's banner-sized rule too: the big photo carries
+`data-demo-big` and dims to 65%, while the thumbnails stay near full brightness.
+
+Note the filter order in those rules â€” `brightness(0.65) invert(1)
+hue-rotate(180deg)`, dim **first**. A child's filter is applied to the child's
+own rendering before the page's `invert(1)` runs on the composited result, so a
+`brightness()` below 1 written *after* the counter-inversion gets inverted along
+with everything else and lightens the element instead of dimming it. The
+extension carried that bug through v1.4; keep the dim in front of the invert in
+both places.
 
 ## Before launch
 
 - `SUPPORT_EMAIL` in `lib/site.ts` is a placeholder.
 - `SITE_URL` assumes `https://autodarkmode.com`; it feeds canonical URLs,
   `sitemap.xml` and `robots.txt`.
+- The FAQ now says banner-sized artwork is dimmed. That is true of the
+  extension's source but **not** of v1.4 in the Chrome Web Store, which still
+  has the inverted-brightness bug. Ship the extension update before this copy
+  goes live.

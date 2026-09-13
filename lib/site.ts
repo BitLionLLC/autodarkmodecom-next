@@ -69,7 +69,7 @@ export const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Why aren't my photos inverted into weird negatives?",
-    a: "Because images, video, canvases and embedded frames get a second inversion applied on top of the page's, which cancels out and returns them to their true colors. Text, backgrounds and borders flip to a dark theme; the things you actually want to look at are left looking like themselves.",
+    a: "Because images, video, canvases and embedded frames get a second inversion applied on top of the page's, which cancels out and returns them to their true colors. Text, backgrounds and borders flip to a dark theme; the things you actually want to look at are left looking like themselves. Banner-sized artwork is dimmed a little further, so a full-width hero photo doesn't sit in a dark page like a lightbulb — thumbnails, avatars and icons stay at full strength, because dimming those just looks broken.",
   },
   {
     q: "Will I see a white flash before it kicks in?",

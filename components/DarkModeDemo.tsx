@@ -87,7 +87,9 @@ function BrowserFrame({ dark }: { dark: boolean }) {
 /**
  * A deliberately ordinary light-mode article: white ground, dark text, one big
  * photo and a few small ones. Nothing here is styled for dark mode, which is
- * exactly the situation the extension exists for.
+ * exactly the situation the extension exists for. The big photo carries
+ * data-demo-big so the demo shows banner-sized artwork being dimmed further
+ * than the thumbnails, the way the extension treats it.
  */
 function MockPage({ dark }: { dark: boolean }) {
   return (
@@ -118,6 +120,7 @@ function MockPage({ dark }: { dark: boolean }) {
 
         <div
           data-demo-media
+          data-demo-big
           className="mt-5 h-32 rounded-lg bg-[linear-gradient(115deg,#ffd9a0_0%,#ff9f7c_38%,#c98ce0_72%,#7fb4f5_100%)] sm:h-40"
         />
 
