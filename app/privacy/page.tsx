@@ -1,13 +1,15 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Nav } from "@/components/Nav";
+import { pageMetadata } from "@/lib/metadata";
 import { SUPPORT_EMAIL } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Privacy",
   description:
     "Auto Dark Mode collects nothing. No analytics, no telemetry, no server. Here is exactly what the extension touches and why.",
-};
+  path: "/privacy",
+});
 
 export default function PrivacyPage() {
   return (

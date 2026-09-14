@@ -5,7 +5,7 @@ import {
   ShareCard,
 } from "@/lib/share-card";
 
-export const alt = "Auto Dark Mode — dark mode for every site, automatically";
+export const alt = "Other apps from BitLion";
 export const size = SHARE_CARD_SIZE;
 export const contentType = SHARE_CARD_CONTENT_TYPE;
 
@@ -13,9 +13,9 @@ export default function OpengraphImage() {
   return new ImageResponse(
     (
       <ShareCard
-        headline="Every site goes dark."
-        accent="You do nothing."
-        blurb="A Chrome extension that darkens light websites before they paint — and leaves the already-dark ones alone."
+        headline="The rest of"
+        accent="what BitLion makes."
+        blurb="iPhone apps, browser extensions and web tools — built by the same two-person shop as Auto Dark Mode."
       />
     ),
     size,

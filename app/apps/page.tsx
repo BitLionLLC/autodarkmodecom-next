@@ -8,13 +8,15 @@ import {
   getOtherProducts,
   type Product,
 } from "@/lib/apps";
+import { pageMetadata } from "@/lib/metadata";
 import { COMPANY_URL } from "@/lib/site";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Other apps",
   description:
     "The rest of what BitLion makes — iPhone apps, browser extensions and web tools, built by the same two-person shop as Auto Dark Mode.",
-};
+  path: "/apps",
+});
 
 export default async function AppsPage() {
   const products = await getOtherProducts();

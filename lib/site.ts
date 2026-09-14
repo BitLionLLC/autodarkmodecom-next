@@ -7,7 +7,16 @@
 export const CHROME_STORE_URL =
   "https://chromewebstore.google.com/detail/auto-dark-mode/ececpikikiadgencgepkdkafekilbakj";
 
-export const SITE_URL = "https://autodarkmode.com";
+/**
+ * The canonical origin, including the `www.` that the apex domain 301s to.
+ *
+ * This has to be the host that actually answers 200, not the apex: everything
+ * derived from it - og:image, og:url, the canonical link, the sitemap - is
+ * handed to crawlers verbatim, and LinkedIn's and Facebook's image fetchers
+ * don't follow redirects. Pointing og:image at the apex is what left link
+ * previews blank.
+ */
+export const SITE_URL = "https://www.autodarkmode.com";
 
 /** BitLion's own site, linked from the footer and the other-apps page. */
 export const COMPANY_URL = "https://thebitlion.com";

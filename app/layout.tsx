@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
+import { OPEN_GRAPH_DEFAULTS, SITE_NAME } from "@/lib/metadata";
 import { GA_MEASUREMENT_ID, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: title,
-    template: "%s — Auto Dark Mode",
+    template: `%s — ${SITE_NAME}`,
   },
   description,
   keywords: [
@@ -25,12 +26,16 @@ export const metadata: Metadata = {
     "night mode",
     "browser dark mode",
   ],
+  alternates: { canonical: "/" },
+  applicationName: SITE_NAME,
+  // Facebook and LinkedIn both read the Open Graph block; the card image itself
+  // comes from app/opengraph-image.tsx, which Next turns into og:image plus the
+  // type/width/height tags LinkedIn wants before it will render a large card.
   openGraph: {
+    ...OPEN_GRAPH_DEFAULTS,
     title,
     description,
-    url: SITE_URL,
-    siteName: "Auto Dark Mode",
-    type: "website",
+    url: "/",
   },
   twitter: {
     card: "summary_large_image",
